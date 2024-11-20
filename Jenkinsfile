@@ -17,7 +17,7 @@ pipeline {
             steps{
                 echo "This is Build the Code"
                 script{
-                   sh 'docker build .'
+                   sh 'sudo docker build .'
                 }
             }
         }
