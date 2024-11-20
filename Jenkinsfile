@@ -17,10 +17,7 @@ pipeline {
             steps{
                 echo "This is Build the Code"
                 script{
-                    sh '''
-                    echo 'Buid Docker Image'
-                    docker build -t rajneesh-kumar-sharma/apache:${BUILD_NUMBER} .
-                    '''
+                   sh 'docker build .'
                 }
             }
         }
