@@ -1,9 +1,5 @@
-FROM ubuntu
-RUN apt update 
-RUN apt install apache2 -y
-RUN apt install apache2-utils -y
-RUN apt clean 
-WORKDIR /var/www/html/
-COPY html/ ./
+FROM ubuntu:latest
+RUN apt-get update && apt-get install -y apache2 && apt-get clean
+COPY html /var/www/html/
 EXPOSE 80
-CMD [“apache2ctl”, “-D”, “FOREGROUND”]
+CMD ["/usr/sbin/apachectl","-DFOREGROUND"]
