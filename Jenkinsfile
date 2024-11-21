@@ -1,34 +1,28 @@
+@Library("Shared") _
 pipeline {
     agent any
-    environment {
-        IMAG_TAG = "${BUILD_NUMBER}"
-    }
     
     stages{
         stage("code"){
             steps{
                 echo "This is code"
-                git credentialsId: '58c0d45bcfc925ff3d82e7010c706918', 
-                url: 'https://github.com/rajneesh-kumar-sharma/project1',
-                branch: 'master'
+                clone("https://github.com/rajneesh-kumar-sharma/project1.git","master")
             }
         }
         stage("Build Docker"){
             steps{
                 echo "This is Build the Code"
-                script{
-                   sh 'sudo docker build .'
-                }
+                docker_build("webapp","latest","coolrajnish")                 }
             }
-        }
-        stage("test"){
+        stage("Push to Docker Hub"){
             steps{
-                echo "This is Testing phase"
+                docker_push("webapp","latest","coolrajnish")
             }
         }
         stage("Deploy"){
             steps{
                 echo "Deploy on container"
+                sh "docker compose up -d"
             }
         }
     }
