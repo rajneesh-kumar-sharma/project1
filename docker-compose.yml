@@ -1,7 +1,7 @@
 version : "3.8"
 services: 
   web:
-   container_name: webapp
+   container_name: coolrajnish/webapp:latest
    image: webapp:latest
    ports:
     - "80:80"
