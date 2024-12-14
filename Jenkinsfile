@@ -11,6 +11,7 @@ pipeline {
         }
         stage("Build Docker"){
             steps{
+                sh "whoami"
                 echo "This is Build the Code"
                 docker_build("webapp","latest","coolrajnish")                 }
             }
